@@ -31,6 +31,6 @@ int _atoi(char *s)
 			i++;
 		}
 	}
-	singo *= -1;
+	signo *= -1;
 	return (n * signo);
 }
