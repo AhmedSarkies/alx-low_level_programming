@@ -31,4 +31,3 @@ i++;
 signo *= -1;
 return (n * signo);
 }
-}
