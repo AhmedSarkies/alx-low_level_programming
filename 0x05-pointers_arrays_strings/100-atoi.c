@@ -1,33 +1,32 @@
-#include "main.h"
+#include "holberton.h"
 /**
-*_atoi - convert a string to an integer.
-*@s: the string to be comverted.
-*Return: The integer value of the comverted string.
-**/
-int _atoi(char *s) 
+ * _atoi - converts a string to an integer.
+ * @s: the string to convert
+ * Return: the converted string.
+ */
+int _atoi(char *s)
 {
-int i = 0; 
-int n = 0; 
-int signo = 1; 
-while ((s[i] < '0' || s[i] > '9') && s[i] != 0) 
-{
-if (s[i] == '-') 
-signo *= -1; 
-i++; 
-} 
-while ((s[i] >= '0' && s[i] <= '9') && s[i] != 0) 
-{ 
-if (n >= 0) 
-{ 
-n = n * 10 - (s[i] - '0'); 
-i++; 
-} 
-else 
-{ 
-n = n * 10 - (s[i] - '0');
-i++;
-}
-}
-signo *= -1;
-return (n *signo);
+	short boolean;
+	int i, minus, result;
+
+	i = minus = result = boolean = 0;
+	minus = -1;
+
+	while (s[i] != '\0')
+	{
+		if (s[i] == '-')
+			minus *= -1;
+
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			result *= 10;
+			result -= (s[i] - '0');
+			boolean = 1;
+		}
+		else if (boolean == 1)
+			break;
+		i++;
+	}
+	result *= minus;
+	return (result);
 }
